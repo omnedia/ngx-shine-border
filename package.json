@@ -1,0 +1,27 @@
+{
+  "name": "@omnedia/ngx-shine-border",
+  "description": "A simple component library to create a container with an animated border.",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0",
+    "@angular/core": "^17.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "rxjs",
+    "npm",
+    "border",
+    "beam",
+    "shine",
+    "gradient",
+    "animation"
+  ],
+  "repository": {
+    "url": "https://github.com/omnedia/ngx-shine-border"
+  },
+  "author": "Markus Block (markus.block@omnedia.com)",
+  "license": "MIT"
+}
