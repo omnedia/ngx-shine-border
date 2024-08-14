@@ -1,0 +1,64 @@
+.om-shine-border {
+  --color-from: #ffaa40;
+  --color-middle: #fe8fb5;
+  --color-to: #9c40ff;
+  --border-radius: 0.5rem;
+  --border-color: hsl(240, 3.9%, 15.1%);
+  --animation-duration: 14s;
+
+  border: 1px solid;
+  border-radius: var(--border-radius);
+  border-color: var(--border-color);
+  position: relative;
+  overflow: hidden;
+
+  .om-shine-border-border {
+    border: 1px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      aspect-ratio: 1/1;
+      will-change: background-position;
+      border-radius: var(--border-radius);
+      padding: 1px;
+
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+
+      background-size: 300% 300%;
+      background-image: radial-gradient(
+        transparent,
+        transparent,
+        var(--color-from),
+        var(--color-middle),
+        var(--color-to),
+        transparent,
+        transparent
+      );
+
+      animation: shine-pulse var(--animation-duration) infinite linear;
+    }
+  }
+}
+
+@keyframes shine-pulse {
+  0% {
+    background-position: 0 0;
+    content: "";
+  }
+  50% {
+    background-position: 100% 100%;
+    content: "";
+  }
+  100% {
+    background-position: 0 0;
+    content: "";
+  }
+}

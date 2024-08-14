@@ -1,7 +1,7 @@
 {
   "name": "@omnedia/ngx-shine-border",
   "description": "A simple component library to create a container with an animated border.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0"
