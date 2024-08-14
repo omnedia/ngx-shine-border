@@ -1,4 +1,6 @@
-<div class="om-shine-border" [ngStyle]="style" [ngClass]="styleClass">
-  <div class="om-shine-border-border"></div>
-  <ng-content></ng-content>
+<div class="om-shine-border-wrapper">
+  <div class="om-shine-border" [ngStyle]="style" [ngClass]="styleClass">
+    <div class="om-shine-border-border"></div>
+    <ng-content></ng-content>
+  </div>
 </div>
