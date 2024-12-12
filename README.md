@@ -1,5 +1,13 @@
 # ngx-shine-border
 
+<a href="https://ngxui.com" target="_blank" style="display: flex;gap: .5rem;align-items: center;cursor: pointer; padding: 0 0 0 0; height: fit-content;">
+  <img src="https://ngxui.com/assets/img/ngxui-logo.png" style="width: 64px;height: 64px;">
+  <p style="font-weight: bold; padding: 0; margin: 0; font-size: 4rem">NGXUI</p>
+</a>
+
+This Library is part of the NGXUI ecosystem. <br>
+View all available components at https://ngxui.com
+
 `@omnedia/ngx-shine-border` is an Angular library that provides a dynamic and customizable animated border effect for Angular components. This component allows you to create a glowing, animated border that can be customized in terms of colors, border radius, and animation duration.
 
 ## Features
@@ -21,21 +29,23 @@ npm install @omnedia/ngx-shine-border
 Import the `NgxShineBorderComponent` in your Angular module or component:
 
 ```typescript
-import { NgxShineBorderComponent } from '@omnedia/ngx-shine-border';
+import {NgxShineBorderComponent} from '@omnedia/ngx-shine-border';
 
 @Component({
   ...
-  imports: [
-    ...
-    NgxShineBorderComponent,
-  ],
+    imports:
+[
   ...
+    NgxShineBorderComponent,
+],
+...
 })
 ```
 
 Use the component in your template:
 
 ```html
+
 <om-shine-border
   [gradientColorStart]="'#ffaa40'"
   [gradientColorMiddle]="'#fe8fb5'"
@@ -52,6 +62,7 @@ Use the component in your template:
 ## API
 
 ```html
+
 <om-shine-border
   [gradientColorStart]="colorFrom"
   [gradientColorMiddle]="'colorMiddle'"
@@ -76,6 +87,7 @@ Use the component in your template:
 ## Example
 
 ```html
+
 <om-shine-border
   [gradientColorStart]="'#ff7f50'"
   [gradientColorMiddle]="'#fe8fb5'"
@@ -92,6 +104,7 @@ Use the component in your template:
 This will create a glowing, animated border around the heading with a custom gradient, border radius, and animation speed.
 
 ## Styling
+
 To customize the appearance of the border or container, use the styleClass input to apply your own CSS classes.
 
 ```css
@@ -102,7 +115,9 @@ To customize the appearance of the border or container, use the styleClass input
 ```
 
 ## Contributing
+
 Contributions are welcome. Please submit a pull request or open an issue to discuss your ideas.
 
 ## License
+
 This project is licensed under the MIT License.
