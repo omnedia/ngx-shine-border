@@ -1,6 +1,6 @@
-<div class="om-shine-border-wrapper">
+<div class="om-shine-border-wrapper" #OmShineBorderWrapper>
   <div class="om-shine-border" [ngStyle]="style" [ngClass]="styleClass">
-    <div class="om-shine-border-border"></div>
+    <div class="om-shine-border-border" [class.paused]="!isInView()"></div>
     <ng-content></ng-content>
   </div>
 </div>

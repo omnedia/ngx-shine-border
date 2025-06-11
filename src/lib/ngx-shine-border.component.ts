@@ -1,5 +1,16 @@
-import { CommonModule } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import {CommonModule, isPlatformBrowser} from "@angular/common";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Inject,
+  Input,
+  OnDestroy,
+  PLATFORM_ID,
+  signal,
+  ViewChild
+} from "@angular/core";
 
 @Component({
   selector: "om-shine-border",
@@ -7,8 +18,11 @@ import { Component, Input } from "@angular/core";
   imports: [CommonModule],
   templateUrl: "./ngx-shine-border.component.html",
   styleUrl: "./ngx-shine-border.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxShineBorderComponent {
+export class NgxShineBorderComponent implements AfterViewInit, OnDestroy {
+  @ViewChild("OmShineBorderWrapper") shineBorderRef!: ElementRef<HTMLElement>;
+
   @Input("styleClass")
   styleClass?: string;
 
@@ -43,4 +57,27 @@ export class NgxShineBorderComponent {
   }
 
   style: any = {};
+
+  isInView = signal(false);
+  private intersectionObserver?: IntersectionObserver;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.intersectionObserver = new IntersectionObserver(([entry]) => {
+        this.isInView.set(entry.isIntersecting);
+      });
+      this.intersectionObserver.observe(this.shineBorderRef.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.intersectionObserver) {
+      this.intersectionObserver.disconnect();
+    }
+  }
 }
